@@ -8,6 +8,7 @@
 
 import Foundation
 
+
 protocol NetworkServiceProtocol {
   func urlStringToData(urlString: String, completion: @escaping ((Data?)->()))
   func performNetworkCall<T: Codable>(urlString: String, objectType: T.Type, completion: @escaping ((T?)->()))
