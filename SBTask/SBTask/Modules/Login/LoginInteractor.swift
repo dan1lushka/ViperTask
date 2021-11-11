@@ -10,7 +10,10 @@
 import Foundation
 
 class LoginInteractor: LoginInteractorInputProtocol {
-    weak var presenter: LoginInteractorOutputProtocol?
-
-    
+  weak var presenter: LoginInteractorOutputProtocol?
+  
+  func validateFields(userName: String?, password: String?) {
+    let isValid = userName.hasNotEmptyValue && password.hasNotEmptyValue
+    presenter?.validateFields(validated: isValid)
+  }
 }

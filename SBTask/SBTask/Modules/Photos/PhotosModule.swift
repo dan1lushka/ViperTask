@@ -13,8 +13,10 @@ class PhotosModule {
     func build() -> UIViewController {
         let view = UIStoryboard(name: "Photos", bundle: nil).instantiateInitialViewController() as! PhotosViewController
         let router = PhotosRouter()
-        let interactor = PhotosInteractor()
-        let presenter = PhotosPresenter(interface: view, interactor: interactor, router: router)
+        let cache = NSCache<NSString, NSData>()
+        let networkService = NetworkService()
+        let interactor = PhotosInteractor(networkService: networkService)
+        let presenter = PhotosPresenter(interface: view, interactor: interactor, router: router, imageCache: cache)
 
         view.presenter = presenter
         router.viewController = view

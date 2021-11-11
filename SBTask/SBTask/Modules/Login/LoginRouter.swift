@@ -10,10 +10,10 @@
 import UIKit
 
 class LoginRouter: LoginRouterProtocol {
-    weak var viewController: UIViewController?
-    
-    func navigateToPhotos() {
-        let photos = PhotosModule().build()
-        viewController?.navigationController?.pushViewController(photos, animated: true)
-    }
+  weak var viewController: UIViewController?
+  
+  func navigateToPhotos() {
+    let photos = PhotosModule().build()
+    viewController?.navigationController?.pushViewController(photos, animated: true)
+  }
 }
